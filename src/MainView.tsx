@@ -1,14 +1,22 @@
 import { observer } from "mobx-react";
-import { useContext } from "react";
-import { AppStoreContext } from "./AppStore";
+// import { useContext } from "react";
+import { Route, Switch } from "react-router";
+// import { AppStoreContext } from "./AppStore";
+import { About, CounterView, Users } from "./Components";
 
 export const MainView = observer(() => {
-  // Grab the timer from the context.
-  const appStore = useContext(AppStoreContext); // See the Timer definition above.
+  // const appStore = useContext(AppStoreContext);
   return (
-    <div>
-      <div>Seconds passed1: {appStore.cnt}</div>
-      <button onClick={() => appStore.inc()}>Click!</button>
-    </div>
+    <Switch>
+      <Route path="/about">
+        <About />
+      </Route>
+      <Route path="/users">
+        <Users />
+      </Route>
+      <Route path="/">
+        <CounterView />
+      </Route>
+    </Switch>
   );
 });
