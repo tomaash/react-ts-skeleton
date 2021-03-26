@@ -7,7 +7,7 @@ export const MainView = observer(() => {
   const appStore = useContext(AppStoreContext); // See the Timer definition above.
   return (
     <div>
-      <div>Seconds passed: {appStore.cnt}</div>
+      <div>Seconds passed1: {appStore.cnt}</div>
       <button onClick={() => appStore.inc()}>Click!</button>
     </div>
   );
