@@ -11,7 +11,7 @@ export const AppWrapper = styled.section`
   flex-direction: column;
 `;
 
-type StylableProps = {
+export type StylableProps = {
   className?: string;
   children?: any;
 };
@@ -26,7 +26,7 @@ const NavBarComponent = ({ className }: StylableProps) => (
         <Link to="/about">About</Link>
       </li>
       <li>
-        <Link to="/users">Users</Link>
+        <Link to="/people">People</Link>
       </li>
     </ul>
   </nav>
@@ -49,17 +49,23 @@ export const NavBar = styled(NavBarComponent)`
   }
 `;
 
-export function Home() {
-  return <h2>Home</h2>;
-}
+export const AboutComponent = () => (
+  <>
+    <h2>About</h2>
+    <p>
+      Just some text... Just some text... Just some text... Just some text...
+      Just some text...
+    </p>
+  </>
+);
 
-export function About() {
-  return <h2>About</h2>;
-}
+export const UsersComponent = ({ className }: StylableProps) => (
+  <h2 className={className}>Users</h2>
+);
 
-export function Users() {
-  return <h2>Users</h2>;
-}
+export const Users = styled(UsersComponent)`
+  background-color: papayawhip;
+`;
 
 export const CounterView = observer(() => {
   const appStore = useContext(AppStoreContext);
